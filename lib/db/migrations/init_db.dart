@@ -1,0 +1,10 @@
+// lib\db\migrations\init_db.dart
+
+const String initDbScript = """
+  CREATE TABLE Category (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      desc TEXT,
+      iconCodePoint INTEGER
+    );
+  """;
