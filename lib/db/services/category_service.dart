@@ -6,9 +6,18 @@ import '../../models/serializers.dart';
 abstract class CategoryServiceBase {
   Future<BuiltList<CategoryModel>> getAllCategories();
   Future<int> createCategory(CategoryModel category);
+  Future<int> deleteCategory(int categoryId);
 }
 
 class CategoryService implements CategoryServiceBase {
+
+  @override
+  Future<int> deleteCategory(int categoryId) async {
+    var db = await OfflineDbProvider.provider.database;
+    var result = db.delete("Category", where: "id = ?", whereArgs: [categoryId]);
+    return result;
+  }
+
   @override
   Future<BuiltList<CategoryModel>> getAllCategories() async {
     var db = await OfflineDbProvider.provider.database;
