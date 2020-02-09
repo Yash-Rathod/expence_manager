@@ -1,5 +1,6 @@
 import 'category.dart';
 import 'dashboard_page.dart';
+import 'stocks.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,7 +12,7 @@ class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
 
-  List<String> _tabs = ["Home", "Category", "Report"];
+  List<String> _tabs = ["Home", "Category", "Stocks"];
 
   @override
   void initState() {
@@ -29,7 +30,7 @@ class _HomePageState extends State<HomePage>
             tabs: [
               Tab(icon: Icon(Icons.home)),
               Tab(icon: Icon(Icons.category)),
-              Tab(icon: Icon(Icons.report)),
+              Tab(icon: Icon(Icons.monetization_on)),
             ],
           ),
         ),
@@ -38,11 +39,12 @@ class _HomePageState extends State<HomePage>
           children: <Widget>[
             DashboardPage(),
             CategoryPage(),
-            Center(
-                child: Text(
-                  "Reports",
-                  style: Theme.of(context).textTheme.headline4,
-                ))
+            App(),
+//            Center(
+//                child: Text(
+//              "Stocks",
+//              style: Theme.of(context).textTheme.display1,
+//            ))
           ],
         ));
   }

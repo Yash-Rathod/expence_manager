@@ -19,7 +19,6 @@ class _CategoryPageState extends State<CategoryPage> {
     _categoryBloc = CategoryBloc(CategoryService());
   }
 
-
   @override
   Widget build(BuildContext context) {
     return _getCategoryTab();
@@ -36,7 +35,10 @@ class _CategoryPageState extends State<CategoryPage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AddCategory(categoryBloc: _categoryBloc,)),
+                MaterialPageRoute(
+                    builder: (context) => AddCategory(
+                          categoryBloc: _categoryBloc,
+                        )),
               );
             },
           ),
@@ -72,13 +74,14 @@ class _CategoryPageState extends State<CategoryPage> {
                       trailing: IconButton(
                         icon: Icon(Icons.delete),
                         color: Theme.of(context).primaryColorLight,
-                        onPressed: () => _categoryBloc.deleteCategory(category.id),
+                        onPressed: () =>
+                            _categoryBloc.deleteCategory(category.id),
                       ),
                       title: Text(
                         category.title,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .body1
                             .copyWith(color: Theme.of(context).accentColor),
                       ),
                       subtitle: Text(
